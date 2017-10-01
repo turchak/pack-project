@@ -2,14 +2,15 @@
   "name": "heroku-test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "babel-loader": {
     "preset": [
       "2015"
     ]
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node_modules/.bin/webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.8.2"
+    "webpack-dev-server": "^2.9.1"
   },
   "dependencies": {
     "express": "^4.16.1"
