@@ -1,0 +1,32 @@
+.main {
+  height: calc(100vh - 150px);
+  min-height: 700px;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    background: green;
+  }
+}
+
+.prices {
+  align-self: center;
+  width: 30%;
+  height: 100%;
+  height: 700px;
+  background: yellow;
+}
+
+.calculator {
+  align-self: center;
+  width: 33%;
+  height: 700px;
+  background: yellow;
+}
+
+.form {
+  align-self: center;
+  width: 33%;
+  height: 700px;
+  background: yellow;
+}

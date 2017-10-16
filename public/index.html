@@ -12,41 +12,239 @@
 
 <body>
   <header class="header">
-    <div class="container"></div>
+    <div class="container header__container"></div>
   </header>
+
   <main class="main">
-    <div class="container">
-      <form class="form" action="#0">
-        <div class="form__box">
-          <span class="form__name">a5</span>
-          <input class="form__input form__input--a5" data-type="format" type="number" name="a5" value="0" placeholder="введите количество">
+    <div class="container main__container">
+      <section class="prices">
+
+        <div class="prices__box">
+          <h2 class="prices__title">до 49</h2>
+          <ol class="prices__list">
+            <li class="price__list-item">формат А5 (190мм*240мм) - <span class="price__list-item-value price__list-item-value--a5" data-price-a5="price1"></span></li>
+            <li class="price__list-item">формат А4 (240мм*320мм) - <span class="price__list-item-value price__list-item-value--a4" data-price-a4="price1"></span></li>
+            <li class="price__list-item">формат А3 (300мм*400мм) - <span class="price__list-item-value price__list-item-value--a3" data-price-a3="price1"></span></li>
+            <li class="price__list-item">формат А3+(380мм*400мм) - <span class="price__list-item-value price__list-item-value--a3plus" data-price-a3plus="price1"></span></li>
+            <li class="price__list-item">формат А2 (600мм*400мм) - <span class="price__list-item-value price__list-item-value--a2" data-price-a2="price1"></span></li>
+          </ol>
         </div>
-        <div class="form__box">
-          <span class="form__name">a4</span>
-          <input class="form__input form__input--a4" data-type="format" type="number" name="a4" value="0" placeholder="введите количество">
+
+        <div class="prices__box">
+          <h2 class="prices__title">от 50 до 99</h2>
+          <ol class="prices__list">
+            <li class="price__list-item">формат А5 (190мм*240мм) - <span class="price__list-item-value price__list-item-value--a5" data-price-a5="price2"></span></li>
+            <li class="price__list-item">формат А4 (240мм*320мм) - <span class="price__list-item-value price__list-item-value--a4" data-price-a4="price2"></span></li>
+            <li class="price__list-item">формат А3 (300мм*400мм) - <span class="price__list-item-value price__list-item-value--a3" data-price-a3="price2"></span></li>
+            <li class="price__list-item">формат А3+(380мм*400мм) - <span class="price__list-item-value price__list-item-value--a3plus" data-price-a3plus="price2"></span></li>
+            <li class="price__list-item">формат А2 (600мм*400мм) - <span class="price__list-item-value price__list-item-value--a2" data-price-a2="price2"></span></li>
+          </ol>
         </div>
-        <div class="form__box">
-          <span class="form__name">a3</span>
-          <input class="form__input form__input--a3" data-type="format" type="number" name="a3" value="0" placeholder="введите количество">
+
+        <div class="prices__box">
+          <h2 class="prices__title">от 100</h2>
+          <ol class="prices__list">
+            <li class="price__list-item">формат А5 (190мм*240мм) - <span class="price__list-item-value price__list-item-value--a5" data-price-a5="price3"></span></li>
+            <li class="price__list-item">формат А4 (240мм*320мм) - <span class="price__list-item-value price__list-item-value--a4" data-price-a4="price3"></span></li>
+            <li class="price__list-item">формат А3 (300мм*400мм) - <span class="price__list-item-value price__list-item-value--a3" data-price-a3="price3"></span></li>
+            <li class="price__list-item">формат А3+(380мм*400мм) - <span class="price__list-item-value price__list-item-value--a3plus" data-price-a3plus="price3"></span></li>
+            <li class="price__list-item">формат А2 (600мм*400мм) - <span class="price__list-item-value price__list-item-value--a2" data-price-a2="price3"></span></li>
+          </ol>
         </div>
-        <div class="form__box">
-          <span class="form__name">a3+</span>
-          <input class="form__input form__input--a3plus" data-type="format" type="number" name="a3plus" value="0" placeholder="введите количество">
+
+      </section>
+      <section class="calculator">
+        <div class="calc">
+          <div class="calc__box">
+            <span class="calc__name">a5</span>
+            <input class="calc__input calc__input--a5" data-type="format" name="a5" value="0" placeholder="введите количество">
+          </div>
+
+          <div class="calc__box">
+            <span class="calc__name">a4</span>
+            <input class="calc__input calc__input--a4" data-type="format" name="a4" value="0" placeholder="введите количество">
+          </div>
+
+          <div class="calc__box">
+            <span class="calc__name">a3</span>
+            <input class="calc__input calc__input--a3" data-type="format" name="a3" value="0" placeholder="введите количество">
+          </div>
+
+          <div class="calc__box">
+            <span class="calc__name">a3+</span>
+            <input class="calc__input calc__input--a3plus" data-type="format" name="a3plus" value="0" placeholder="введите количество">
+          </div>
+
+          <div class="calc__box">
+            <span class="calc__name">a2</span>
+            <input class="calc__input calc__input--a2" data-type="format" name="a2" value="0" placeholder="введите количество">
+          </div>
+
+          <div class="calc__box">
+            <span class="calc__name">all</span>
+            <input class="calc__sum calc__input--sum" data-type="format" name="all" value="0" placeholder="введите количество">
+          </div>
         </div>
-        <div class="form__box">
-          <span class="form__name">a2</span>
-          <input class="form__input form__input--a2" data-type="format" type="number" name="a2" value="0" placeholder="введите количество">
+
+        <div class="computation">
+
+          <div class="computation__box" data-type="a5">
+            <span class="computation__name">a5 -</span>
+            <span class="computation__amount" data-amount="a5"></span>
+            <span class="computation__price" data-price="a5"></span>
+            <span class="computation__equality">=</span>
+            <span class="computation__total"></span>
+            <span class="computation__currency">грн.</span>
+          </div>
+
+          <div class="computation__box" data-type="a4">
+            <span class="computation__name">a4 -</span>
+            <span class="computation__amount" data-amount="a4"></span>
+            <span class="computation__price" data-price="a4"></span>
+            <span class="computation__equality">=</span>
+            <span class="computation__total"></span>
+            <span class="computation__currency">грн.</span>
+          </div>
+
+          <div class="computation__box" data-type="a3">
+            <span class="computation__name">a3 -</span>
+            <span class="computation__amount" data-amount="a3"></span>
+            <span class="computation__price" data-price="a3"></span>
+            <span class="computation__equality">=</span>
+            <span class="computation__total"></span>
+            <span class="computation__currency">грн.</span>
+          </div>
+
+          <div class="computation__box" data-type="a3plus">
+            <span class="computation__name">a3plus</span>
+            <span class="computation__amount" data-amount="a3plus"></span>
+            <span class="computation__price" data-price="a3plus"></span>
+            <span class="computation__equality">=</span>
+            <span class="computation__total"></span>
+            <span class="computation__currency">грн.</span>
+          </div>
+
+          <div class="computation__box" data-type="a2">
+            <span class="computation__name">a2</span>
+            <span class="computation__amount" data-amount="a2"></span>
+            <span class="computation__price" data-price="a2"></span>
+            <span class="computation__equality">=</span>
+            <span class="computation__total"></span>
+            <span class="computation__currency">грн.</span>
+          </div>
+
         </div>
+      </section>
+      <section class="form">
+        <h2 class="form__title"></h2>
+
+        <form action="/send" class="form__container" method="POST">
         <div class="form__box">
-          <span class="form__name">Всего</span>
-          <input class="form__input form__input--all" type="number" name="all" value="0" placeholder="введите количество">
+          <span class="form__name">Имя Фамилия</span>
+          <input type="text" class="form__input form__input--name" name="name">
         </div>
-      </form>
+
+        <div class="form__box">
+          <span class="form__name">Город</span>
+          <input type="text" class="form__input form__input--city" name="city">
+        </div>
+
+        <div class="form__box">
+          <span class="form__name">Адресс доставки</span>
+          <input type="text" class="form__input form__input--address" name="address">
+        </div>
+
+        <div class="form__box">
+          <span class="form__name">Телефон</span>
+          <input type="text" class="form__input form__input--phone" name="phone">
+        </div>
+
+        <button class="form__button" type="submit">Отправить заказ</button>
+        </form>
+
+      </section>
     </div>
   </main>
+
   <footer class="footer">
-    <div class="container"></div>
+    <div class="container footer__container"></div>
   </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--<main class="main">-->
+    <!--<div class="container">-->
+
+
+      <!--<form class="form" action="#0">-->
+        <!--<div class="form__box">-->
+          <!--<span class="form__name">a5</span>-->
+          <!--<input class="form__input form__input&#45;&#45;a5" data-type="format" type="number" name="a5" value="0" placeholder="введите количество">-->
+        <!--</div>-->
+        <!--<div class="form__box">-->
+          <!--<span class="form__name">a4</span>-->
+          <!--<input class="form__input form__input&#45;&#45;a4" data-type="format" type="number" name="a4" value="0" placeholder="введите количество">-->
+        <!--</div>-->
+        <!--<div class="form__box">-->
+          <!--<span class="form__name">a3</span>-->
+          <!--<input class="form__input form__input&#45;&#45;a3" data-type="format" type="number" name="a3" value="0" placeholder="введите количество">-->
+        <!--</div>-->
+        <!--<div class="form__box">-->
+          <!--<span class="form__name">a3+</span>-->
+          <!--<input class="form__input form__input&#45;&#45;a3plus" data-type="format" type="number" name="a3plus" value="0" placeholder="введите количество">-->
+        <!--</div>-->
+        <!--<div class="form__box">-->
+          <!--<span class="form__name">a2</span>-->
+          <!--<input class="form__input form__input&#45;&#45;a2" data-type="format" type="number" name="a2" value="0" placeholder="введите количество">-->
+        <!--</div>-->
+        <!--<div class="form__box">-->
+          <!--<span class="form__name">Всего</span>-->
+          <!--<input class="form__input form__input&#45;&#45;all" type="number" name="all" value="0" placeholder="введите количество">-->
+        <!--</div>-->
+      <!--</form>-->
+      <!--<form class="form" action="#">-->
+        <!--<div class="form__box">-->
+          <!--<span class="price__name">price a5</span>-->
+          <!--<input class="price__input price__input&#45;&#45;a5" data-type="price" type="number" name="a5" value="0">-->
+        <!--</div>-->
+        <!--<div class="form__box">-->
+          <!--<span class="form__name">a4</span>-->
+          <!--<input class="price__input price__input&#45;&#45;a4" data-type="price" type="number" name="a4" value="0">-->
+        <!--</div>-->
+        <!--<div class="form__box">-->
+          <!--<span class="price__name">a3</span>-->
+          <!--<input class="price__input price__input&#45;&#45;a3" data-type="price" type="number" name="a3" value="0">-->
+        <!--</div>-->
+        <!--<div class="form__box">-->
+          <!--<span class="price__name">a3+</span>-->
+          <!--<input class="price__input price__input&#45;&#45;a3plus" data-type="price" type="number" name="a3plus" value="0">-->
+        <!--</div>-->
+        <!--<div class="form__box">-->
+          <!--<span class="price__name">a2</span>-->
+          <!--<input class="price__input price__input&#45;&#45;a2" data-type="price" type="number" name="a2" value="0">-->
+        <!--</div>-->
+        <!--<div class="form__box">-->
+          <!--<span class="form__name">Всего</span>-->
+          <!--<input class="price__input price__input&#45;&#45;all" type="number" name="sumall" value="" placeholder="итого">-->
+        <!--</div>-->
+      <!--</form>-->
+    <!--</div>-->
+  <!--</main>-->
+
+
+
+
   <script src="app.bundle.js"></script>
 </body>
 

@@ -73,6 +73,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__assets_scss_main_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__assets_scss_main_scss__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__assets_js_main_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__assets_js_main_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__assets_js_main_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__assets_js_form_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__assets_js_form_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__assets_js_form_js__);
+
 
 
 
@@ -87,78 +90,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 2 */
 /***/ (function(module, exports) {
 
-function calcAll() {
-  let inputA5 = document.querySelector('.form__input--a5');
-  let inputA4 = document.querySelector('.form__input--a4');
-  let inputA3 = document.querySelector('.form__input--a3');
-  let inputA3plus = document.querySelector('.form__input--a3plus');
-  let inputA2 = document.querySelector('.form__input--a2');
-  let allInputs = document.querySelectorAll('[data-type]');
+throw new Error("Module parse failed: C:\\home\\heroku-test\\heroku-test\\src\\assets\\js\\main.js Unexpected token (30:4)\nYou may need an appropriate loader to handle this file type.\n|     switch (sumValues(zakaz)) {\r\n|         case\r\n|     }\r\n| }\r\n| \r");
 
-  let valueInputA5 = 0;
-  let valueInputA4 = 0;
-  let valueInputA3 = 0;
-  let valueInputA3plus = 0;
-  let valueInputA2 = 0;
-// function sumAll() start
-  function sumAll() {
-    let sum = {
-      A5: valueInputA5,
-      A4: valueInputA4,
-      A3: valueInputA3,
-      A3plus: valueInputA3plus,
-      A2: valueInputA2
-    };
-    let valueAll = sum.A5 + sum.A4 + sum.A3 + sum.A3plus + sum.A2;
-    let inputSum = document.querySelector('.form__input--all');
-    console.log(sum);
-    inputSum.value = valueAll;
-  };
-// function sumAll() end
-  allInputs.forEach(elem => {
-    elem.addEventListener('change', e => {
-      e.preventDefault();
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
 
-      valueInputA5 = parseInt(inputA5.value);
-      valueInputA4 = parseInt(inputA4.value);
-      valueInputA3 = parseInt(inputA3.value);
-      valueInputA3plus = parseInt(inputA3plus.value);
-      valueInputA2 = parseInt(inputA2.value);
+function sendForm() {
+    let form = document.querySelector('.form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        let body = new Object();
+        body.name = document.querySelector('.form__input--name').value;
+        body.city = document.querySelector('.form__input--city').value;
+        body.address = document.querySelector('.form__input--address').value;
+        body.phone = document.querySelector('.form__input--phone').value;
 
-      if (inputA5.value == "") {
-        inputA5.value = 0;
-        valueInputA5 = 0;
-        sumAll();
-      }
-      if (inputA4.value == "") {
-        inputA4.value = 0;
-        valueInputA4 = 0;
-        sumAll();
-      }
-
-      if (inputA3.value == "") {
-        inputA3.value = 0;
-        valueInputA3 = 0;
-        sumAll();
-      }
-      if (inputA3plus.value == "") {
-        inputA3plus.value = 0;
-        valueInputA3plus = 0;
-        sumAll();
-      }
-      if (inputA2.value == "") {
-        inputA2.value = 0;
-        valueInputA2 = 0;
-        sumAll();
-      }
-      else {
-        sumAll();
-      }
-    })
-  });
+        fetch('/send',
+            {
+                method: "POST",
+                body: body
+            })
+            .then(function (res) {
+                return res.text();
+            })
+            .then(function (data) {
+                alert(data)
+            })
+    });
 }
-calcAll();
-
+sendForm();
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=app.bundle.js.map

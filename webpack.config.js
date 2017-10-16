@@ -3,6 +3,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   context: path.join(__dirname, 'src'),
+  devtool: 'source-map',
   entry: {
     app: './app.js'
   },
@@ -27,11 +28,11 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('assets/css/main.css')
-  ],
-  devServer: {
-    contentBase: path.join(__dirname, "public"),
-    compress: true,
-    inline: true,
-    port: 9000
-  }
+  ]
+  // devServer: {
+  //   contentBase: path.join(__dirname, "public"),
+  //   compress: true,
+  //   inline: true,
+  //   port: 8080
+  // }
 };
