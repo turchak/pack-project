@@ -1,26 +1,26 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 const mongoose = require('mongoose');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 
-
 // Body Parser Middleware
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
-app.listen(process.env.PORT || 8080, () => console.log('all is ok'))
+app.listen(process.env.PORT || 8080, () => console.log('all is ok'));
 //added all .js files from folder /models
 fs.readdirSync(__dirname + '/models').forEach(function (filename) {
     if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
 });
 
 //connecting to DB mongo
-mongoose.connect('mongodb://localhost/mongo');
+// mongoose.connect('mongodb://localhost/mongo');
 
+    mongoose.connect('mongodb://valera:383838@ds155644.mlab.com:55644/heroku_1jjc7kmf');
 //get query
 app.get('/prices', function (req, res) {
     console.log("Hello");
@@ -29,7 +29,7 @@ app.get('/prices', function (req, res) {
     });
 });
 
-app.post('/send', (req, res) => {
+app.post('/send', function (req, res) {
     console.log(req.body);
     let text = prepareMailBody(req.body);
     sendMail(text);
@@ -39,13 +39,12 @@ app.post('/send', (req, res) => {
 
 
 function prepareMailBody(reqBody) {
-    let emailbody = `имя ${reqBody.name} ${reqBody.city}`;
+    let emailbody = `имя ${reqBody.name}, ${reqBody.city}, ${reqBody.address}, ${reqBody.phone}`;
     return emailbody;
-};
+}
 
 
 let transporter = nodemailer.createTransport({
-    // service: 'mail.adm.tools',
     host: 'mail.adm.tools',
     port: 25,
     secure: false,
