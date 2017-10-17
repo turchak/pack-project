@@ -29,7 +29,6 @@ function calcTotalQuantity(order) {
 
 // function get tariff dependent on total amount of pucks
 function getTariff(totalAmount) {
-
     switch (true) {
         case (totalAmount < 50) :
             return 'price1';
