@@ -90,39 +90,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 2 */
 /***/ (function(module, exports) {
 
+// global variables
 let entryFields = document.querySelectorAll('.calc__input');
 let sumField = document.querySelector('.calc__input--sum');
 let price = [];
 
+// function get total quantity of packs in object
+function getTotalQuantity() {
 
-
-function sumAll() {
-    let aa = {};
-
-
+    let quantity = {};
     let inputA5 = document.querySelector('.calc__input--a5');
     let inputA4 = document.querySelector('.calc__input--a4');
     let inputA3 = document.querySelector('.calc__input--a3');
     let inputA3plus = document.querySelector('.calc__input--a3plus');
     let inputA2 = document.querySelector('.calc__input--a2');
-    aa.a5 = parseInt(inputA5.value);
-    aa.a4 = parseInt(inputA4.value);
-    aa.a3 = parseInt(inputA3.value);
-    aa.a3plus = parseInt(inputA3plus.value);
-    aa.a2 = parseInt(inputA2.value);
-
-    return aa;
+    quantity.a5 = parseInt(inputA5.value);
+    quantity.a4 = parseInt(inputA4.value);
+    quantity.a3 = parseInt(inputA3.value);
+    quantity.a3plus = parseInt(inputA3plus.value);
+    quantity.a2 = parseInt(inputA2.value);
+    return quantity;
 }
 
-function sumAllFormats(zakaz) {
-    const sumValues = zakaz => Object.values(zakaz).reduce((a, b) => a + b);
+// function calc sum from object all quantity of packs
+function calcTotalQuantity(order) {
 
-    return sumValues(zakaz);
+    const totalQuantity = order => Object.values(order).reduce((a, b) => a + b);
+    return totalQuantity(order);
 }
 
-function getTarif(totalAmount) {
+// function get tariff dependent on total amount of pucks
+function getTariff(totalAmount) {
 
-    // let totalAmount = sumValues(totalAmount);
     switch (true) {
         case (totalAmount < 50) :
             return 'price1';
@@ -135,19 +134,18 @@ function getTarif(totalAmount) {
     }
 }
 
+// function do calculations
 function reCalc() {
-    let zakaz = sumAll();
-    let totalAmount = sumAllFormats(zakaz);
-    let tarif = getTarif(totalAmount);
+    let order = getTotalQuantity();
+    let totalAmount = calcTotalQuantity(order);
+    let tarif = getTariff(totalAmount);
 
-    printPayment(tarif, zakaz, totalAmount);
+    showPayment(tarif, order, totalAmount);
     sumField.value = totalAmount;
-    document.querySelector('.computation__bill').innerText = zakaz.total;
-
+    document.querySelector('.computation__bill').value = +(order.total).toFixed(2);
 }
 
-
-
+// function get format tarif
 function getFormatTarif(format) {
     for (let i = 0, len = price.length; i < len; i++) {
         if (price[i].name === format) {
@@ -156,30 +154,28 @@ function getFormatTarif(format) {
     }
 }
 
-function printPayment(tarif, zakaz, totalAmount) {
+// function show payment info
+function showPayment(tarif, order) {
+
     let allPayments = document.querySelectorAll('.computation__box');
-
-
-    zakaz.total = 0;
+    order.total = 0;
 
     allPayments.forEach(function (elem) {
         let format = elem.dataset.type;
         let formatTarif = getFormatTarif(format);
-        let formatAmount = zakaz[format];
+        let formatAmount = order[format];
         let curentTariff = formatTarif[tarif]/100;
 
-        elem.querySelector('.computation__price').innerText = formatAmount;
-        elem.querySelector('.computation__amount').innerText = curentTariff;
-        elem.querySelector('.computation__total').innerText = formatAmount * curentTariff;
         let totalSum;
-        totalSum = formatAmount * curentTariff;
+        totalSum = +(formatAmount * curentTariff).toFixed(2);
 
-        zakaz.total = zakaz.total + totalSum;
-        console.log(zakaz);
-
+        elem.querySelector('.computation__amount').innerText = formatAmount;
+        elem.querySelector('.computation__price').innerText = curentTariff;
+        elem.querySelector('.computation__total').innerText = totalSum;
+        order.total = order.total + totalSum;
     })
-
 }
+
 
 
 entryFields.forEach(function (elem) {
@@ -246,7 +242,7 @@ function printPrices() {
 
     document.querySelector('[data-price-a3plus="price1"]').innerText = (pricesA3plus.price1) / 100;
     document.querySelector('[data-price-a3plus="price2"]').innerText = (pricesA3plus.price2) / 100;
-    document.querySelector('[data-price-a3plus="price3"]').innerText = (pricesA3.price3) / 100;
+    document.querySelector('[data-price-a3plus="price3"]').innerText = (pricesA3plus.price3) / 100;
 
     document.querySelector('[data-price-a2="price1"]').innerText = (pricesA2.price1) / 100;
     document.querySelector('[data-price-a2="price2"]').innerText = (pricesA2.price2) / 100;
@@ -262,10 +258,9 @@ function sendForm() {
     let form = document.querySelector('.form');
     form.addEventListener('submit', function (event) {
         event.preventDefault();
-        let myHeaders = new Headers();
-
-        myHeaders.append('Content-Type', 'application/json');
         let data = {};
+        let myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'application/json');
         data.name = document.querySelector('.form__input--name').value;
         data.city = document.querySelector('.form__input--city').value;
         data.address = document.querySelector('.form__input--address').value;
@@ -275,7 +270,7 @@ function sendForm() {
         data.a3 = document.querySelector('.calc__input--a3').value;
         data.a3plus = document.querySelector('.calc__input--a3plus').value;
         data.a2 = document.querySelector('.calc__input--a2').value;
-
+        data.bill = document.querySelector('.computation__bill').value;
 
 
         fetch('/send', {

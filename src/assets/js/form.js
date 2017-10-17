@@ -2,10 +2,9 @@ function sendForm() {
     let form = document.querySelector('.form');
     form.addEventListener('submit', function (event) {
         event.preventDefault();
-        let myHeaders = new Headers();
-
-        myHeaders.append('Content-Type', 'application/json');
         let data = {};
+        let myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'application/json');
         data.name = document.querySelector('.form__input--name').value;
         data.city = document.querySelector('.form__input--city').value;
         data.address = document.querySelector('.form__input--address').value;
@@ -15,7 +14,7 @@ function sendForm() {
         data.a3 = document.querySelector('.calc__input--a3').value;
         data.a3plus = document.querySelector('.calc__input--a3plus').value;
         data.a2 = document.querySelector('.calc__input--a2').value;
-
+        data.bill = document.querySelector('.computation__bill').value;
 
 
         fetch('/send', {

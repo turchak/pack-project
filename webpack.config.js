@@ -29,10 +29,4 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('assets/css/main.css')
   ]
-  // devServer: {
-  //   contentBase: path.join(__dirname, "public"),
-  //   compress: true,
-  //   inline: true,
-  //   port: 8080
-  // }
 };

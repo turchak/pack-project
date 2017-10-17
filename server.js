@@ -23,7 +23,6 @@ fs.readdirSync(__dirname + '/models').forEach(function (filename) {
     mongoose.connect('mongodb://valera:383838@ds155644.mlab.com:55644/heroku_1jjc7kmf');
 //get query
 app.get('/prices', function (req, res) {
-    console.log("Hello");
     mongoose.model('prices').find(function (err, prices) {
         res.send(prices);
     });
@@ -39,7 +38,7 @@ app.post('/send', function (req, res) {
 
 
 function prepareMailBody(reqBody) {
-    let emailbody = `имя ${reqBody.name}, ${reqBody.city}, ${reqBody.address}, ${reqBody.phone}`;
+    let emailbody = `Имя Фамилия - ${reqBody.name}\nГород -  ${reqBody.city}\nАдрес доставки - ${reqBody.address}\nТелефн - ${reqBody.phone}\nЗаказ: А5 - ${reqBody.a5}\nА4 - ${reqBody.a4}\nА3 - ${reqBody.a3}\nА3+ - ${reqBody.a3plus}\nА2 - ${reqBody.a2}\nСумма заказа: ${reqBody.bill}`;
     return emailbody;
 }
 
@@ -60,7 +59,7 @@ function sendMail(text) {
     let mailOptions = {
         from: 'pack@nice.com.ua',
         to: 'turchaksv@gmail.com',
-        subject: 'Sending Email using Node.js',
+        subject: 'Новый заказ',
         text: text
     };
 

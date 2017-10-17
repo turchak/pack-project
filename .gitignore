@@ -1,3 +1,7 @@
 *.config
 .sass-cache
+.idea
+*.iws
+*.iml
+*.ipr
 node_modules
