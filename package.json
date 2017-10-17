@@ -40,7 +40,6 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.1",
     "mongoose": "^4.10.8",
-    "nodemailer": "^4.2.0",
-    "xoauth2": "^1.2.0"
+    "nodemailer": "^4.2.0"
   }
 }
